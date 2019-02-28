@@ -2,7 +2,7 @@
 
 Create React App
 
-npmnpm init react-app weatherapp
+npm init react-app weatherapp
 
 Material-ui
 
