@@ -1,16 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Vaaditut asennukset ennen käyttämistä
 
-## Available Scripts
+Create React App
+npmnpm init react-app weatherapp
+Material-ui
+npm install @material-ui/core
+Material-ui icons
+npm install @material-ui/icons
 
-In the project directory, you can run:
+Sovelluksen käynnistys
+npm start
 
-### `npm start`
+Toiminta http://localhost:3000 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Ominaisuudet
 
-## Sovellus hakee syötetyn kaupungin sään ja tarjoaa mahdollisuuden tallentaa kaupungin localstorageen.
+Sovellus hakee syötetyn kaupungin sään ja tarjoaa mahdollisuuden tallentaa kaupungin localstorageen.
 
-## Sovellus antaa virheilmoituksen, jos syötetty arvo on tyhjä tai api kysely palauttaa html request -virheen.
+Sovellus antaa virheilmoituksen, jos syötetty arvo on tyhjä tai api kysely palauttaa html request -virheen.
+
 
 
