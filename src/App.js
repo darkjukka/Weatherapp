@@ -96,17 +96,17 @@ function ListSavedCities(props) {
 
 class App extends React.Component {
     constructor(props) {
-      super(props);
-      this.state={
-        value:'',
-        open:false,
-		cityweather: '',
-		savedCities: [],
-		searchError: 0
-      }
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+		super(props);
+		this.state={
+			value:'',
+			open:false,
+			cityweather: '',
+			savedCities: [],
+			searchError: 0
+		}
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	
 	componentDidMount() {
@@ -178,56 +178,55 @@ class App extends React.Component {
 		if(this.state.searchError === 1){
 			error = <h3 className={classes.Error}>Something went wrong...</h3>;
 		}
-      return (
-        <div>
-			<CssBaseline />
-        <Modal
+      	return (
+			<div>
+				<CssBaseline />
+				<Modal
+					aria-labelledby="simple-modal-title"
+					aria-describedby="simple-modal-description"
+					open={this.state.open}
+					onClose={this.handleClose}
+				>
+					<div style={getModalStyle()} className={classes.Modal}>
+					<IconButton className={classes.Icon} onClick={this.handleClose}>
+						<CloseIcon  />
+					</IconButton>
+					<div className={classes.Warning}>
+					<h2 className={classes.Error}>Enter city name</h2>
+					</div>
+					</div>
+				</Modal>
+				<div className={classes.Container}>
+					<div className={classes.SearchForm}>
+						<h2>Enter city name to search for current weather</h2>
+						<form onSubmit={this.handleSubmit}>
+							<TextField
+							id="city"
+							label="City"
+							value={this.state.value}
+							onChange={this.handleChange}
+							margin="normal"
+							/>
+							<Button className={classes.Button} type="submit" value="Submit" variant="contained" color="primary">Search</Button>
+								
+						</form>
+						{error}
+						{weather}
+						{button}
+					
+					</div>
+					<div className={classes.SavedCities}>
+						{savedList}
+					</div>
+				</div>
 			
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={this.handleClose}
-        >
-          <div style={getModalStyle()} className={classes.Modal}>
-		  	<IconButton className={classes.Icon} onClick={this.handleClose}>
-            	<CloseIcon  />
-        	</IconButton>
-			<div className={classes.Warning}>
-            <h2 className={classes.Error}>Enter city name</h2>
 			</div>
-          </div>
-        </Modal>
-        <div className={classes.Container}>
-        <div className={classes.SearchForm}>
-		<h2>Enter city name to search for current weather</h2>
-        <form onSubmit={this.handleSubmit}>
-          <TextField
-          id="city"
-          label="City"
-          value={this.state.value}
-          onChange={this.handleChange}
-          margin="normal"
-        />
-        <Button className={classes.Button} type="submit" value="Submit" variant="contained" color="primary">Search</Button>
-          
-        </form>
-		{error}
-		{weather}
-		{button}
-		
-		</div>
-		<div className={classes.SavedCities}>
-		{savedList}
-		</div>
-		</div>
-		
-        </div>
-      );
+      	);
     }
-  }
+}
 
-  App.propTypes = {
-	classes: PropTypes.object.isRequired,
-  };
+App.propTypes = {
+classes: PropTypes.object.isRequired,
+};
 
-  export default withStyles(styles)(App);
+export default withStyles(styles)(App);
